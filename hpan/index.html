@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chúc Ngủ Ngon</title>
+	<style>
+		body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #2b5876, #4e4376);
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffd700;
+            color: #4e4376;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e5c100;
+        }
+
+        .symbols {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .symbol {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 3s ease-in-out forwards;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        .image-container {
+            margin: 20px auto;
+            max-width: 300px;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+	</style>
+</head>
+<body>
+<div class="container">
+	<h1>💤 Chúc Thiên Lam ngủ ngon nhó💫</h1>
+	<p>Ngày mai dậy sớm chúc em buôn bán đắt nhá!, chừa cho anh vài món được rồi hh nói đùa đi ngủ đi</p>
+	<div class="image-container">
+		<img src="g99.jpg" alt="Ảnh lãng mạn">
+	</div>
+	<button id="playMusic">Này là bật nhạc nè hh 🎶</button>
+	<button id="releaseSymbols">Nhấn cái này thử đi 🌙✨</button>
+	<audio id="sleepMusic" loop>
+		<source src="g9.mp3" type="audio/mpeg">
+		Trình duyệt của bạn không hỗ trợ âm thanh.
+	</audio>
+	<div class="symbols" id="symbolsContainer"></div>
+</div>
+
+<script>
+	// Phát hoặc tạm dừng nhạc
+    document.getElementById('playMusic').addEventListener('click', () => {
+        const music = document.getElementById('sleepMusic');
+        if (music.paused) {
+            music.play();
+        } else {
+            music.pause();
+        }
+    });
+
+    // Thả biểu tượng lãng mạn
+    document.getElementById('releaseSymbols').addEventListener('click', () => {
+        const symbolsContainer = document.getElementById('symbolsContainer');
+        for (let i = 0; i < 10; i++) {
+            const symbol = document.createElement('span');
+            symbol.textContent = ['🌙', '✨', '💤', '🌟'][Math.floor(Math.random() * 4)];
+            symbol.className = 'symbol';
+            symbol.style.left = Math.random() * 100 + 'vw';
+            symbol.style.top = '100vh';
+            symbolsContainer.appendChild(symbol);
+            setTimeout(() => symbol.remove(), 3000);
+        }
+    });
+</script>
+</body>
+</html>
